@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+
+
+<div style="text-align:center; margin-top:100px">
+
+<h1 class="fontchanger" style="color: red; font-size: 50px; margin-bottom: 40px;">
+    Log in your Account
+</h1>
+
+<form method="POST", enctype="multipart/form-data">
+        {{ login_form.hidden_tag() }}
+        {{ login_form.email ( placeholder="Email", class = "backgroundgradient" ) }}<br>
+        {{ login_form.password (placeholder="Password", class = "backgroundgradient" ) }}<br>
+        {{ login_form.submit (class = "backgroundgradient", value = "Log in", style="width:150px") }}
+
+</form>
+</div>
+</div>
+{% endblock %}

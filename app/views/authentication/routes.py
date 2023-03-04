@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, flash
-from app.views.authentication.forms import RegisterForm
+from flask import Blueprint, render_template, flash, request, redirect, url_for
+from app.views.authentication.forms import RegisterForm, LoginForm
 from app.extensions import db
 from app.models.user import User
+from flask_login import login_user, logout_user
 authentication_Blueprint  = Blueprint("authentication", __name__, template_folder="templates")
 
 @authentication_Blueprint.route("/registration", methods =["GET", "POST"])
@@ -20,3 +21,18 @@ def register():
 
        
     return render_template("authentication/registration.html", register_form = form)
+
+
+
+@authentication_Blueprint.route("/authorisation", methods =["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user)
+        return redirect(url_for('main.home'))
+
+           
+    return render_template("authentication/login.html", login_form=form)
+

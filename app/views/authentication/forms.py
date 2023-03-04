@@ -1,4 +1,4 @@
-from wtforms.fields import StringField, PasswordField, EmailField, RadioField, BooleanField, SelectField, TextAreaField,SubmitField
+from wtforms.fields import StringField, PasswordField, EmailField,SubmitField
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, length, equal_to, Email
 
@@ -14,3 +14,12 @@ class RegisterForm(FlaskForm):
                                                  equal_to("password", message="Password do not match")])
 
     submit = SubmitField()
+
+
+class LoginForm(FlaskForm):
+    email = EmailField(validators=[DataRequired(), Email()])
+    password = PasswordField(validators=[DataRequired("password is required")])
+    submit = SubmitField()
+
+    
+
