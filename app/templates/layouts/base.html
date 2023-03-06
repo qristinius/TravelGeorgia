@@ -22,8 +22,12 @@
             <a class="nav-link active" aria-current="page" href="#", style="margin-right: 970px;">Home</a>
             <a class="nav-link" href="#">Tours</a>
             <a class="nav-link" href="#">Impressions</a>
-            <a class="nav-link" href="{{url_for('authentication.login')}}">Log In</a>
-            <a class="nav-link" href="{{url_for('authentication.register')}}">Sign Up</a>
+            {% if not current_user.is_authenticated %}
+                <a class="nav-link" href="{{url_for('authentication.login')}}">Log In</a>
+                <a class="nav-link" href="{{url_for('authentication.register')}}">Sign Up</a>
+            {%else%}
+                <a class="nav-link" href=" {{ url_for('authentication.logout') }}">Logout</a>
+            {% endif %}
 
             </div>
         </div>

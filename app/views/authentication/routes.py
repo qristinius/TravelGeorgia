@@ -36,3 +36,8 @@ def login():
            
     return render_template("authentication/login.html", login_form=form)
 
+
+@authentication_Blueprint.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("main.home"))
