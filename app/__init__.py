@@ -2,7 +2,7 @@ from flask import Flask
 from app.config import Config
 from app.views.main.routes import main_blueprint
 from app.views.authentication.routes import authentication_Blueprint
-from app.extensions import db, migrate,login_manager
+from app.extensions import db, migrate,login_manager, mail
 from app.commands import init_db
 from app.models.user import User
 
@@ -24,6 +24,8 @@ def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app)
     login_manager.init_app(app)
+    mail.init_app(app)
+
     
     @login_manager.user_loader
     def load_user(_id):
