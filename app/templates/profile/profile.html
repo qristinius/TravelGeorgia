@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+
+
+<div style="text-align:center">
+
+<h1 class="fontchanger" style="color: red; font-size: 80px; margin-bottom: 40px;">
+    My Account
+</h1>
+
+<form method="POST", enctype="multipart/form-data">
+        {{ profile_form.hidden_tag() }}
+        {{ profile_form.username ( placeholder = current_user.username, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.email ( placeholder=current_user.email, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.mobile (placeholder=current_user.mobile, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.submit (class = "backgroundgradient", value = "Register", style="width:150px") }}
+
+
+</form>
+
+
+
+
+{% for field, error in profile_form.errors.items() %}
+    <div class="alert alert-primary" role="alert">
+        {{ error }}
+ 
+    {% endfor %}
+
+</div>
+</div>
+{% endblock %}

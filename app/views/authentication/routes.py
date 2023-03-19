@@ -36,7 +36,7 @@ def confirm_email(key):
         user.save()
         return redirect(url_for('main.home'))
     else:
-        return "Wrong secret key or expired, or already confirmed"
+        flash("Wrong secret key or expired, or already confirmed")
     
 
 
@@ -51,7 +51,7 @@ def forgot_password():
             html = render_template('authentication/_reset_message.html', key=reset_key)
             send_email("Reset your password", html, form.email.data)
             user.save()
-            return "You have been emailed password reset link"
+            flash("You have been emailed password reset link") 
     return render_template('authentication/forgot_password.html', form=form)
 
 
@@ -62,7 +62,7 @@ def reset_password(key):
     user = User.query.filter_by(email=email).first()
 
     if not user: return "Wrong secret key or expired, or already confirmed"
-    if not user.reset_password: return "Password already reset"
+    if not user.reset_password: flash("Password already reset")
 
     if form.validate_on_submit():
         user.password = form.password.data
@@ -78,8 +78,13 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+        next = request.args.get("next")
         if user and user.check_password(form.password.data):
             login_user(user)
+            if next:
+                return redirect(url_for("profile.myaccount"))
+            else:
+                return redirect(url_for("main.home"))
         return redirect(url_for('main.home'))
 
            

@@ -26,6 +26,7 @@
                 <a class="nav-link" href="{{url_for('authentication.login')}}">Log In</a>
                 <a class="nav-link" href="{{url_for('authentication.register')}}">Sign Up</a>
             {%else%}
+            <a class="nav-link" href=" {{ url_for('profile.myaccount') }}">Profile</a>
                 <a class="nav-link" href=" {{ url_for('authentication.logout') }}">Logout</a>
             {% endif %}
 
@@ -40,6 +41,17 @@
 
 {% block content %}
 {% endblock %}
+
+<div style="color: #04AA6D; text-align:center;">
+
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    {% endwith %}
+
+    
+</div>
 
 </body>
 </html>
