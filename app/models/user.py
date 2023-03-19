@@ -12,6 +12,7 @@ class User(BaseModel, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
     email = db.Column(db.String)
+    mobile_number = db.Column(db.String)
     _password = db.Column("password", db.String)
     confirmed = db.Column(db.Boolean, default=False)
     reset_password = db.Column(db.Boolean, default=False)

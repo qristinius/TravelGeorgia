@@ -11,10 +11,12 @@
 
 <form method="POST", enctype="multipart/form-data">
         {{ profile_form.hidden_tag() }}
-        {{ profile_form.username ( placeholder = current_user.username, class = "backgroundgradient" ) }}<br>
-        {{ profile_form.email ( placeholder=current_user.email, class = "backgroundgradient" ) }}<br>
-        {{ profile_form.mobile (placeholder=current_user.mobile, class = "backgroundgradient" ) }}<br>
-        {{ profile_form.submit (class = "backgroundgradient", value = "Register", style="width:150px") }}
+        {{ profile_form.username ( value = current_user.username, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.email ( value=current_user.email, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.mobile (value=current_user.mobile_number, class = "backgroundgradient" ) }}<br>
+        {{ profile_form.password (placeholder="Password", class = "backgroundgradient" ) }}<br>
+        {{ profile_form.confirm_password ( placeholder="Repeat password", class = "backgroundgradient" ) }} <br>
+        {{ profile_form.submit (class = "backgroundgradient", value = "Save new info", style="width:150px") }}
 
 
 </form>

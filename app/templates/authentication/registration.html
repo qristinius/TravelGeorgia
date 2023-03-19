@@ -13,8 +13,10 @@
         {{ register_form.hidden_tag() }}
         {{ register_form.username ( placeholder="Username", class = "backgroundgradient" ) }}<br>
         {{ register_form.email ( placeholder="Email", class = "backgroundgradient" ) }}<br>
+        {{ register_form.mobile_number ( placeholder="Mobile number", class = "backgroundgradient" ) }}<br>
         {{ register_form.password (placeholder="Password", class = "backgroundgradient" ) }}<br>
-        {{ register_form.confirm_password ( placeholder="Repeat password", class = "backgroundgradient" ) }}<br>
+        {{ register_form.confirm_password ( placeholder="Repeat password", class = "backgroundgradient" ) }}
+        <br>
         {{ register_form.submit (class = "backgroundgradient", value = "Register", style="width:150px") }}
 
 
