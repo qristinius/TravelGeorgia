@@ -2,14 +2,15 @@ from flask import Flask
 from app.config import Config
 from app.views.main.routes import main_blueprint
 from app.views.authentication.routes import authentication_Blueprint
+from app.views.tours.routes import tour_blueprint
 from app.views.profile.routes import profile_blueprint
 from app.extensions import db, migrate,login_manager, mail
-from app.commands import init_db
+from app.commands import init_db, populate_db
 from app.models.user import User
 
 
-BLUEPRINTS = [main_blueprint, authentication_Blueprint, profile_blueprint]
-COMMANDS = [init_db]
+BLUEPRINTS = [main_blueprint, authentication_Blueprint, profile_blueprint, tour_blueprint]
+COMMANDS = [init_db, populate_db]
 
 
 def create_app():

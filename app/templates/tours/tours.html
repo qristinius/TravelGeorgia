@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+
+
+{% for tour in tours%}
+<div class="card" style="width: 18rem;">
+    <img src="{{tour['img'] }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Location : {{tour.location}}</h5>
+      <p class="card-text">Duration : {{tour.duration}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price : {{tour.price}} Lari</li>
+      <li class="list-group-item">Date : {{tour.date}}</li>
+    </ul>
+  </div>
+
+{% endfor %}
+
+
+
+
+
+
+{% endblock %}
