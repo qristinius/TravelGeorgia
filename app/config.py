@@ -14,6 +14,8 @@ class Config(object):
     MAIL_PASSWORD = '57cbda838b314c'
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
+    FLASK_ADMIN_SWATCH = "cyborg"
+
 
 class Constant:
     SERIALIZER_SALT = "12345678"

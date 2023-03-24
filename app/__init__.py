@@ -2,13 +2,13 @@ from flask import Flask
 from app.config import Config
 from app.views.main.routes import main_blueprint
 from app.views.authentication.routes import authentication_Blueprint
-#from app.views. import tour_blueprint
+from app.views.tours.routes import tour_blueprint
 from app.views.profile.routes import profile_blueprint
 from app.extensions import db, migrate,login_manager, mail, admin
 from app.commands import init_db, populate_db
 from app.models.user import User
 from app.models.tours import Tour
-from app.admin_modules import SecureAdminView, UserModelView
+from app.admin_modules import SecuredModelView, UserModelView
 from flask_admin.base import MenuLink
 
 
@@ -38,7 +38,7 @@ def register_extensions(app):
         return User.query.get(_id)
 
     admin.init_app(app)
-    admin.add_view(SecureAdminView(Tour, db.session))
+    admin.add_view(SecuredModelView(Tour, db.session, endpoint="tour" ))
     admin.add_view(UserModelView(User, db.session))
     admin.add_link(MenuLink("Return", url="/", icon_type="fa", icon_value="fa-sign-out"))
 
