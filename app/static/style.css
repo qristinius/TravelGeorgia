@@ -14,11 +14,11 @@
     color:white;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(121, 9, 9) 35%, rgb(143, 62, 62) 100%);
+    background: linear-gradient(90deg, rgb(207, 135, 186) 0%, rgb(219, 173, 205) 35%, rgb(202, 164, 191) 100%);
 
 }
 ::placeholder {
-    color: white;
+    color: rgb(26, 25, 25);
     opacity: 2; 
     padding-left: 5px;
   }

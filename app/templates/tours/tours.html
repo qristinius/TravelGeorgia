@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-<h1 class="fontchanger" style="color: red; font-size: 80px; margin-bottom: 20px; text-align:center">
+<h1 class="fontchanger" style="color:bisque; font-size: 80px; margin-bottom: 20px; text-align:center">
   Find your Tour here
 </h1>
 
@@ -18,10 +18,15 @@
             Location
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Signagi</a></li>
+            <li><a class="dropdown-item" href="#">Kazbegi</a></li>
+            <li><a class="dropdown-item" href="#">Svaneti</a></li>
+            <li><a class="dropdown-item" href="#">Bakuriani</a></li>
+            <li><a class="dropdown-item" href="#">Borjomi</a></li>
+            <li><a class="dropdown-item" href="#">Batumi</a></li>
+
+
+
           </ul>
         </li> <br> <br>
         <h6> Duration(In days)</h6>
@@ -40,10 +45,9 @@
             Price
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">50-100</a></li>
+            <li><a class="dropdown-item" href="#">100-150</a></li>
+            <li><a class="dropdown-item" href="#">150-200</a></li>
           </ul>
         </li>
       </div>
@@ -55,18 +59,18 @@
 
 
     {% for tour in tours%}
-    <div class="card" style="width: 18rem; height:400px;">
+    
+    <div class="card" style="width: 18rem; height:400px; background-color:bisque">
       <img src="{{tour['img'] }}" class="card-img-top" alt="..." style="width: 288px; height: 180px">
       <div class="card-body">
         <h5 class="card-title">Location : {{tour.location}}</h5>
         <p class="card-text">Duration : {{tour.duration}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price : {{tour.price}} Lari</li>
-        <li class="list-group-item">Date : {{tour.date}}</li>
+        <li class="list-group-item" style="background-color:bisque">Price : {{tour.price}} Lari</li>
+        <li class="list-group-item" style="background-color:bisque">Date : {{tour.date}}</li>
       </ul>
-      <a class="btn btn-primary" href="#" role="button" style="width:100px; margin-top:10px; margin-left:80px">buy tour</a>
-
+      <a class="btn btn-primary" href="#" role="button" style="width:100px; margin-top:10px; margin-left:80px; background-color:rgb(63, 71, 136)">buy tour</a>
     </div>
 
 
