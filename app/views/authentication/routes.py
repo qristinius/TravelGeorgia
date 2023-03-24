@@ -14,7 +14,7 @@ def register():
         user_email = form.email.data
         user_number =form.mobile_number.data
         user_password = form.password.data
-        user = User(username=user_username, email=user_email, mobile_number=user_number, password=user_password)
+        user = User(username=user_username, email=user_email, mobile_number=user_number, role = "user", password=user_password)
         user.create()
         user.save()
         flash("succesfully registered")

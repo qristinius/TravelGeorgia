@@ -1,3 +1,31 @@
+admins = [
+    {
+        "username" : "Admin1",
+        "email" : "admin1email@gmail.com",
+        "password": "password123",
+        "role" : "admin",
+        "mobile_number": "574121515",
+
+    },
+    {
+        "username" : "Admin2",
+        "email" : "admin2email@gmail.com",
+        "password": "password1234",
+        "role" : "admin",
+        "mobile_number": "574121516",
+
+    },
+    {
+        "username" : "Admin3",
+        "email" : "admin3email@gmail.com",
+        "password": "password12345",
+        "role" : "admin",
+        "mobile_number": "574121517",
+
+    }
+]
+
+
 Tours= [ 
 
 {
